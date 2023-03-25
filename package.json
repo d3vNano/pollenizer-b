@@ -1,0 +1,28 @@
+{
+    "name": "projeto21-autoral-backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "ts-node-dev --respawn --ignore-watch node_modules --no-notify src/app.ts"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/d3vNano/projeto21-autoral-backend.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/d3vNano/projeto21-autoral-backend/issues"
+    },
+    "homepage": "https://github.com/d3vNano/projeto21-autoral-backend#readme",
+    "devDependencies": {
+        "@types/express": "^4.17.17",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^5.0.2"
+    },
+    "dependencies": {
+        "express": "^4.18.2"
+    }
+}
