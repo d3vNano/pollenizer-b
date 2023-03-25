@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "ts-node-dev --respawn --ignore-watch node_modules --no-notify src/app.ts"
+        "dev": "ts-node-dev -r tsconfig-paths/register --respawn --ignore-watch node_modules --no-notify src/app.ts"
     },
     "repository": {
         "type": "git",
@@ -20,6 +20,7 @@
     "devDependencies": {
         "@types/express": "^4.17.17",
         "ts-node-dev": "^2.0.0",
+        "tsconfig-paths": "^4.1.2",
         "typescript": "^5.0.2"
     },
     "dependencies": {
