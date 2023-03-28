@@ -1,9 +1,14 @@
-import express from "express"
+import express, { json } from "express"
+import cors from "cors"
+
+import router from "@/routes/router"
 
 const app = express()
 
-app.use("/health", (req, res) => { return res.send("wee") })
+app
+    .use(cors())
+    .use(json())
+    .use("/health", (req, res) => { res.send("OK!") })
+    .use(router)
 
-app.listen(4000, () => {
-    console.log("wee")
-})
+export default app
