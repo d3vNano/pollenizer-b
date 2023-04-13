@@ -38,6 +38,14 @@ async function testBusinessAddress() {
                 "district": "Frances",
                 "city": "Pão Saulo",
                 "state": "DD",
+            },
+            {
+                "zip_code": "00000000",
+                "street": "Rua Teste",
+                "number": "000",
+                "district": "Teste",
+                "city": "Teste",
+                "state": "TT",
             }
         ], skipDuplicates: true
     })
@@ -148,6 +156,20 @@ async function testBusinessServices() {
     })
 }
 
+async function testUserBase() {
+    return prisma.user.create({
+        data: {
+            "cpf": "00000000000",
+            "name": "Test da Silva",
+            "email": "test@test.com",
+            "phone": "00000000000",
+            "photo": "",
+            "password": "49764976",
+            "address_id": 5
+        }
+    })
+}
+
 export async function createTests() {
 
     await testBusinessAddress().then(() => {
@@ -165,20 +187,8 @@ export async function createTests() {
     await testBusinessServices().then(() => {
         console.log("Serviços-base de negócios criadas com sucesso!")
     })
-}
-/*
-main()
-    .then(() => {
-        console.log("Todas as tabelas populadas com sucesso!")
+
+    await testUserBase().then(() => {
+        console.log("Usuario-base criado com sucesso!")
     })
-    .catch(
-        (e) => {
-            console.error(e)
-            process.exit(1)
-        }
-    ).finally(
-        async () => {
-            await prisma.$disconnect()
-        }
-    )
-*/
+}

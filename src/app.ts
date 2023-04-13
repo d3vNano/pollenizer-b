@@ -4,7 +4,7 @@ import cors from "cors"
 import router from "@/routes/router"
 import { loadEnv, connectDB, disconnectDB } from "./config"
 
-loadEnv()
+loadEnv();
 
 const app = express()
 

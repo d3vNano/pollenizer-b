@@ -15,7 +15,7 @@ model User {
   type String @default("user")
   cpf String @db.VarChar(11)
   name  String
-  email String
+  email String @unique
   phone String  @db.VarChar(11)
   photo String  
   password  String
@@ -30,6 +30,7 @@ model User {
 
   Favorite Favorite[]
   Assessment Assessment[]
+  Session Session[]
 
 @@unique([address_id, email])
 @@map("users")
@@ -74,8 +75,8 @@ model Business {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  Favorite Favorite[]
-  Assessment Assessment[]
+  favorites Favorite[]
+  assessments Assessment[]
   services Service[]
 
 @@unique([photos_id, category_id, address_id])
@@ -164,4 +165,20 @@ model Assessment {
 
 
 @@map("assessments")
+}
+
+model Session {
+  id  Int @id @default(autoincrement())
+  
+  user_id Int
+  user User @relation(fields: [user_id], references: [id])
+
+  token String
+
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+@@unique([user_id])
+@@map("sessions")
 }
