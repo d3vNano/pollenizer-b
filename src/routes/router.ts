@@ -1,12 +1,12 @@
 import { Router } from "express"
-import { authRouter } from "@/routes"
+import { authRouter, usersRouter } from "@/routes"
 
 
 const router = Router()
 
 router
     .use("/auth", authRouter)
-//    .use("auth")
+    .use("/users", usersRouter)
 //    .use("home")
 //    .use("business")
 

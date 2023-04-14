@@ -1,8 +1,8 @@
 import joi from "joi";
-import { SignInParams } from "@/protocols";
+import { loginParams } from "@/protocols";
 
 
-export const signInSchema = joi.object<SignInParams>({
+export const loginSchema = joi.object<loginParams>({
     email: joi.string().email().required(),
     password: joi.string().required()
 })

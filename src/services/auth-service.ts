@@ -3,11 +3,11 @@ import jwt, { Secret } from "jsonwebtoken"
 
 import { exclude } from "@/utils/prisma-utils";
 import { invalidCredentialsError } from "@/errors";
-import { GetUserOrFacilResult, SignInParams, SignInResult } from "@/protocols";
+import { GetUserOrFacilResult, loginParams, SignInResult } from "@/protocols";
 import { sessionRepository, userRepository } from "@/repositories";
 
 
-export async function signIn(params: SignInParams): Promise<SignInResult> {
+export async function login(params: loginParams): Promise<SignInResult> {
     const { email, password } = params
     const user = await getUserOrFail(email)
 

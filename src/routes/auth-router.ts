@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { validateBody } from "@/middlewares";
-import { signInSchema } from "@/models";
-import { singInPost } from "@/controller";
+import { loginSchema } from "@/models";
+import { loginPost } from "@/controller";
 
 
 export const authRouter = Router()
 
-authRouter.post("/signin", validateBody(signInSchema), singInPost)
+authRouter.post("/login", validateBody(loginSchema), loginPost)

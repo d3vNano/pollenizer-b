@@ -14,3 +14,9 @@ export async function findUserByEmail(email: string, select?: Prisma.UserSelect)
 
     return db.user.findUnique(params)
 }
+
+export async function createNewUser(data: Prisma.UserUncheckedCreateInput) {
+    return db.user.create({
+        data,
+    })
+}
