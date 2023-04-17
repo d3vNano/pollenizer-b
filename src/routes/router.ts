@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { authRouter, usersRouter } from "@/routes"
+import { authRouter, homeRouter, usersRouter } from "@/routes"
 
 
 const router = Router()
@@ -7,8 +7,8 @@ const router = Router()
 router
     .use("/auth", authRouter)
     .use("/users", usersRouter)
-//    .use("home")
-//    .use("business")
+    .use("/home", homeRouter)
+//.use("/business")
 
 
 

@@ -1,8 +1,7 @@
 import bcrypt from "bcrypt"
-import { Request } from "express";
 
 import { Address, User } from "@prisma/client";
-import { duplicateEmailError } from "@/errors/duplicate-email-error";
+import { duplicateEmailError } from "@/errors";
 import { CreateAddressParams, CreateUserAndAddressParams } from "@/protocols";
 import { addressRepository, userRepository } from "@/repositories";
 
