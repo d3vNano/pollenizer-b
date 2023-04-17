@@ -31,16 +31,5 @@ export const businessSchema = joi.object<GetBusinessAndServicesData>({
     assessments: {
         user_id: joi.number().required(),
         busines_id: joi.number().required()
-    },
-    services: [
-        {
-            name: joi.string().required(),
-            description: joi.string().required(),
-            price: joi.number().required(),
-            category: {
-                label: joi.string().required()
-            },
-            business_id: joi.number().required()
-        }
-    ]
+    }
 })
