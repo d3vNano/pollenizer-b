@@ -14,10 +14,10 @@ model User {
   id  Int @id @default(autoincrement())
   type String @default("user")
   cpf String @db.VarChar(11) @unique
-  name  String
+  user_name String
   email String @unique
   phone String  @db.VarChar(11)
-  photo String  
+  photo String? 
   password  String
   
   address_id Int

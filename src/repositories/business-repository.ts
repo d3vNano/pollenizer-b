@@ -1,6 +1,19 @@
 import { Prisma } from "@prisma/client";
 import { db } from "@/config";
 
+export async function findManyCategoriesByType() {
+    return db.category.findMany({
+        where: {
+            type: "business"
+        },
+        select: {
+            id: true,
+            type: true,
+            label: true
+        }
+    })
+}
+
 export async function findManyBusinessData() {
     const params: Prisma.BusinessArgs = {
         select: {

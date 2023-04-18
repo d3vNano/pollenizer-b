@@ -2,6 +2,12 @@ import { Request, Response } from "express";
 import { businessService } from "@/services";
 import { GetBusinessAndServicesData } from "@/protocols";
 
+export async function getBusinessCategories(req: Request, res: Response) {
+
+    const categories = await businessService.listAllBusinessCategories()
+
+    return res.send(categories)
+}
 export async function getBusiness(req: Request, res: Response) {
     const result: GetBusinessAndServicesData = await businessService.listAllBusiness()
 

@@ -3,7 +3,7 @@ import { CreateUserAndAddressParams } from "@/protocols"
 
 export const createUserandAddressSchema = joi.object<CreateUserAndAddressParams>({
     cpf: joi.string().length(11).required(),
-    name: joi.string().min(3).required(),
+    user_name: joi.string().min(3).required(),
     email: joi.string().email().required(),
     phone: joi.string().length(11).required(),
     photo: joi.string(),
@@ -14,5 +14,5 @@ export const createUserandAddressSchema = joi.object<CreateUserAndAddressParams>
     complement: joi.string(),
     district: joi.string().required(),
     city: joi.string().required(),
-    state: joi.string().length(2).required()
+    state: joi.string().min(2).required()
 })

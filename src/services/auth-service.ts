@@ -33,7 +33,7 @@ export async function login(params: loginParams): Promise<SignInResult> {
 }
 
 export async function getUserOrFail(email: string): Promise<GetUserOrFacilResult> {
-    const user = await userRepository.findUserByEmail(email, { id: true, email: true, password: true })
+    const user = await userRepository.findUserByEmail(email)
 
     if (!user) throw invalidCredentialsError()
 

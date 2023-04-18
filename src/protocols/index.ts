@@ -23,12 +23,12 @@ export type ValidationMiddleware = (req: Request, res: Response, next: NextFunct
 export type loginParams = Pick<User, "email" | "password">
 
 export type SignInResult = {
-    user: Pick<User, "id" | "email">;
+    user: Pick<User, "id" | "cpf" | "user_name" | "email" | "phone" | "photo">;
     token: string;
     message?: string
 }
 
-export type GetUserOrFacilResult = Pick<User, "id" | "email" | "password">
+export type GetUserOrFacilResult = Pick<User, "id" | "cpf" | "user_name" | "email" | "phone" | "photo" | "password">
 
 export type AuthenticatedRequest = Request & JWTPayload;
 
@@ -36,11 +36,11 @@ export type JWTPayload = {
     user_id: number;
 }
 
-export type CreateUserParams = Pick<User, "cpf" | "name" | "email" | "phone" | "photo" | "password">
+export type CreateUserParams = Pick<User, "cpf" | "user_name" | "email" | "phone" | "photo" | "password">
 
 export type CreateAddressParams = Pick<Address, "zip_code" | "street" | "number" | "complement" | "district" | "city" | "state">
 
-export type CreateUserAndAddressParams = Pick<User & Address, "cpf" | "name" | "email" | "phone" | "photo" | "password" | "zip_code" | "street" | "number" | "complement" | "district" | "city" | "state">
+export type CreateUserAndAddressParams = Pick<User & Address, "cpf" | "user_name" | "email" | "phone" | "photo" | "password" | "zip_code" | "street" | "number" | "complement" | "district" | "city" | "state">
 
 export type GetBusinessAndServicesData = {
     id: number,

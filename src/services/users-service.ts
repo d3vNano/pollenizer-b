@@ -7,7 +7,7 @@ import { addressRepository, userRepository } from "@/repositories";
 
 
 
-export async function createUser({ cpf, name, email, phone, photo, password, zip_code, street, number, complement, district, city, state }: CreateUserAndAddressParams): Promise<User> {
+export async function createUser({ cpf, user_name, email, phone, photo, password, zip_code, street, number, complement, district, city, state }: CreateUserAndAddressParams): Promise<User> {
     await validateUniqueEmailOrFail(email)
 
     const address = await createUserAddress({ zip_code, street, number, complement, district, city, state })
@@ -15,7 +15,7 @@ export async function createUser({ cpf, name, email, phone, photo, password, zip
     const hashPassword = await bcrypt.hash(password, 12)
 
     return userRepository.createNewUser({
-        cpf, name, email, phone, photo, password: hashPassword, address_id: address.id
+        cpf, user_name, email, phone, photo, password: hashPassword, address_id: address.id
     })
 }
 
