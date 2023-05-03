@@ -4,6 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "start": "node ./dist/src/server.js",
         "build": "tsc",
         "dev:load-envs": "dotenv -e .env",
         "test:load-envs": "dotenv -e .env.test",

@@ -1,7 +1,6 @@
 import { Router } from "express"
 import { authRouter, businessRouter, usersRouter } from "@/routes"
 
-
 const router = Router()
 
 router
